@@ -6,6 +6,8 @@ certifi
 pymongo
 pymongo[srv]==3.6
 scikit-learn
+pyaml
+dill
 
 # add at the end when project is done
 # it will create all the packages
