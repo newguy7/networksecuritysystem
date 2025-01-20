@@ -6,8 +6,12 @@ certifi
 pymongo
 pymongo[srv]==3.6
 scikit-learn
+mlflow
 pyaml
 # dill
+
+# Update all dependencies to their latest versions to ensure compatibility
+# --upgrade pymongo to avoid the error
 
 # add at the end when project is done
 # it will create all the packages
