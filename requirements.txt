@@ -3,15 +3,20 @@ pandas
 numpy
 pymongo
 certifi
-pymongo
-pymongo[srv]==3.6
+pymongo==4.10.1
+pymongo[srv]
 scikit-learn
 mlflow
 pyaml
 # dill
+dagshub
+
+fastapi
+uvicorn
+python-multipart
 
 # Update all dependencies to their latest versions to ensure compatibility
-# --upgrade pymongo to avoid the error
+# pip install --upgrade pymongo to avoid the error
 
 # add at the end when project is done
 # it will create all the packages

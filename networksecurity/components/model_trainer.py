@@ -25,6 +25,8 @@ from sklearn.ensemble import (
     RandomForestClassifier
 )
 import mlflow
+import dagshub
+dagshub.init(repo_owner='newguy7', repo_name='networksecuritysystem', mlflow=True)
 
 
 class ModelTrainer:
@@ -117,6 +119,10 @@ class ModelTrainer:
 
             Network_Model = NetworkModel(preprocessor=preprocessor, model=best_model)
             save_object(file_path=self.model_trainer_config.trained_model_file_path, obj=Network_Model)
+
+            # save it in the final_model folder, for model pusher purpose
+            #model pusher
+            save_object("final_models/model.pkl", best_model)
 
             # Model Trainer Artifact
             model_trainer_artifact = ModelTrainerArtifact(trained_model_file_path=self.model_trainer_config.trained_model_file_path,
