@@ -8,6 +8,7 @@ on:
       - 'README.md'
 
 jobs:
+  # Continuous Integration
   integration:
     name: Continuous Integration
     runs-on: ubuntu-latest
@@ -20,6 +21,7 @@ jobs:
 
       - name: Run unit tests
         run: echo "Running unit tests"
+  # Continuous Delivery
   build-and-push-ecr-image:
     name: Continuous Delivery
     needs: integration
@@ -58,6 +60,7 @@ jobs:
           docker push ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
           echo "::set-output name=image::ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
 
+  # Continuous Deployment
   Continuous-Deployment:
     needs: build-push-ecr-image
     runs-on: self-hosted #apprunner/event listener - runs on cloud & continuously keeps on listening if any commits is happening in github or not.
